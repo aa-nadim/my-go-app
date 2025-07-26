@@ -14,3 +14,12 @@ go run main.go
 ```
 docker compose up --build -d
 ```
+
+
+## Docker Hub
+```
+docker login
+docker build -t a2nadim/go-mvc-app:latest .
+
+
+```
