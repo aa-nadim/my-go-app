@@ -17,7 +17,6 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o main .
 # Stage 2: Run
 FROM alpine:3.18
 
-ARG TZ=Asia/Dhaka
 ENV TZ=${TZ}
 
 WORKDIR /root/
