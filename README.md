@@ -13,19 +13,15 @@ go run main.go
 ```
 docker compose up --build -d
 ```
-
+### See the browser
+`http://localhost:80`
 
 ## Docker Hub
 ```
-docker login
-docker build -t a2nadim/go-mvc-app:latest .
-
-docker push a2nadim/go-mvc-app:latest
-
-docker tag a2nadim/go-mvc-app:latest a2nadim/go-mvc-app:v1.0
-docker push a2nadim/go-mvc-app:v1.0
-
+docker run -d -p 8080:8080 --name my-go-app a2nadim/go-mvc-app:latest
 ```
+### See the browser
+`http://localhost:8080`
 
 ## Docker Image Layer Analysis
 - Image: `a2nadim/go-mvc-app:latest`
