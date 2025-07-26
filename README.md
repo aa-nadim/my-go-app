@@ -8,3 +8,9 @@ go mod tidy
 go run main.go
 
 ```
+
+## Run Container
+
+```
+docker compose up --build -d
+```

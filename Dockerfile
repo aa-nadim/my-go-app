@@ -7,12 +7,11 @@ WORKDIR /app
 
 RUN apk add --no-cache git
 
-COPY go.mod go.sum ./
+COPY go.mod ./
 RUN go mod download
 
 COPY . .
 
-# Use build arg in build command if needed (example: conditional build)
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o main .
 
 # Stage 2: Run
@@ -29,8 +28,9 @@ COPY --from=builder /app/main .
 COPY --from=builder /app/views ./views
 COPY --from=builder /app/static ./static
 
+
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-USER appuser
+RUN chown -R appuser:appgroup /root/main /root/views /root/static
 
 EXPOSE 8080
 
